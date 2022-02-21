@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use LaravelDaily\Invoices\Invoice;
 use LaravelDaily\Invoices\Classes\Party;
 use LaravelDaily\Invoices\Classes\InvoiceItem;
@@ -13,9 +14,12 @@ class InvoiceController extends Controller
 {
     //
 
-    // public function changStuts($order_id){
-    //     $order =  Order::find($order_id)
-    // }
+    public function changStuts($order_id){
+        $order =  Order::find($order_id);
+        $order->status = 'delivered';
+        $order->delivered_date = DB::raw('CURRENT_TIMESTAMP');
+        $order->save();
+    }
 
     public function index($order_id){
 
@@ -76,6 +80,8 @@ class InvoiceController extends Controller
 //            ->logo(public_path('assets/images/logo-top-1.png'))
             
             ->save('public');
+
+            $this->changStuts($order_id);
 
         return $invoice->stream();
     }

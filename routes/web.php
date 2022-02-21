@@ -51,8 +51,8 @@ Route::get('/details/{slug}' , DetailsComponent::class )->name('product.details'
 Route::middleware(['auth:sanctum', 'verified' , 'authrole:ADMIN'])->group(function() {
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard') ;
 
-    Route::get('/admin/orders',AdminOrdersComponent::class)->name('admin.orders');
-    Route::get('/admin/orders/{order_id}',AdminOrderDetailsComponent::class)->name('admin.orders.details');
+    Route::get('/admin/orders/{order_status}',AdminOrdersComponent::class)->name('admin.orders');
+    Route::get('/admin/orders/details/{order_id}',AdminOrderDetailsComponent::class)->name('admin.orders.details');
 
     Route::get('/admin/invoice/{order_id}',[InvoiceController::class,'index'])->name('admin.invoice');
 
