@@ -22,6 +22,7 @@
                         <td>tax</td>
                         <td>discount</td>
                         <td>order date</td>
+                        <td>status</td>
                         <td>control</td>
                     </tr>
                 </thead>
@@ -36,7 +37,13 @@
                                 <td>{{$order->tax}}</td>
                                 <td>{{$order->discount}}</td>
                                 <td>{{$order->created_at}}</td>
-                                <td><a href="{{route('user.orders.details',$order->id)}}">details</a></td>
+                                <td>{{$order->status}}</td>
+                                <td>
+                                    <a href="{{route('user.orders.details',$order->id)}}">details</a> 
+                                    @if ($order->status == 'ordered')
+                                        - <a href="#" wire:click.prevent="canceledOrder('{{$order->id}}')">canceled</a>
+                                    @endif
+                                </td>
                             </tr>
                         @endforeach
                         

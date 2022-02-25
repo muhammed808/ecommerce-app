@@ -78,16 +78,22 @@
 														<a title="admin dashboard" href="{{route('admin.dashboard')}}">dashboard</a>
 													</li>
 													<li class="menu-item" >
-														<a title="admin dashboard" href="{{route('admin.categories')}}">categories</a>
+														<a title="categories dashboard" href="{{route('admin.categories')}}">categories</a>
 													</li>
 													<li class="menu-item" >
-														<a title="admin dashboard" href="{{route('admin.products')}}">products</a>
+														<a title="products dashboard" href="{{route('admin.products')}}">products</a>
 													</li>
 													<li class="menu-item" >
-														<a title="admin dashboard" href="{{route('admin.coupons')}}">coupons</a>
+														<a title="coupons dashboard" href="{{route('admin.coupons')}}">coupons</a>
 													</li>
 													<li class="menu-item" >
-														<a title="admin dashboard" href="{{route('admin.orders')}}">orders</a>
+														<a title="orders dashboard" href="{{route('admin.orders','ordered')}}">orders</a>
+													</li>
+													<li class="menu-item" >
+														<a title="delivers orders" href="{{route('admin.orders','delivered')}}">delivers</a>
+													</li>
+													<li class="menu-item" >
+														<a title="canceled orders" href="{{route('admin.orders','canceled')}}">canceled</a>
 													</li>
 													<li class="menu-item" >
 														<a title="admin logout"
