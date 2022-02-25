@@ -45,7 +45,7 @@ class UserProfileComponent extends Component
 
     public function render()
     {
-        $orders = Order::where('user_id',Auth::id())->get();
+        $orders = Order::where('user_id',Auth::id())->orderBy('created_at','DESC')->get();
 
         return view('livewire.user.user-profile-component',['orders'=>$orders]);
     }
